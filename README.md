@@ -1,4 +1,4 @@
-<H1 align="center">Flutter Firebase e Locator</H1>
+<H1 align="center">Flutter Firebase e Injeção de Dependência</H1>
 <p align="center">🚀 Desenvolvimento de uma estrutura contendo locator e Firebase para referências futuras</p>
 
 ## Recursos Utilizados
@@ -81,6 +81,42 @@
   <img src="https://github.com/lucasmargui/Flutter_Estrutura_Firebase/assets/157809964/10fadca7-e723-4fa9-8902-f5e87e3bff21" style="width:45%">
    <img src="https://github.com/lucasmargui/Flutter_Estrutura_Firebase/assets/157809964/49c700ee-594c-4dd1-9a4b-43d4ae6eff45" style="width:45%">
 </div>
+
+
+## Utilizando Get_it 
+
+Get_it é conhecido como um Service Locator simples. Com ele você registra seus tipos em uma interface e fornece a implementação concreta a ela.
+
+### Criação do locator para injeção de dependência
+
+A implementação de injeção de dependência usando um Service Locator implica que a SignUpPage instancia o _controller ao chamar SignUpController(MockAuthService()). Propõe-se remover essa responsabilidade da SignUpPage e transferi-la para um locator.
+
+<img src="https://github.com/lucasmargui/Flutter_Estrutura_Firebase/assets/157809964/2ecb041a-3af4-4866-b41a-ea12103f29d9" style="width:70%">
+
+### Explicação da utilização
+Em outras palavras, a Classe A transfere a responsabilidade para o Locator para recuperar o Serviço A. A Page A também transfere a responsabilidade para o Locator para recuperar o Controller A, que invoca o Serviço A.
+
+<img src="https://github.com/lucasmargui/Flutter_Estrutura_Firebase/assets/157809964/c36f005b-6d84-46cc-9977-eb18d6141418" style="width:100%">
+
+### Criando instância de controller
+Criando instância de controller através do locator e utilizando o método de signUp
+<img src="https://github.com/lucasmargui/Flutter_Estrutura_Firebase/assets/157809964/dc252b13-db0b-4406-83bc-546a40ae6849" style="width:100%">
+
+### Demonstrando fluxo
+
+Demonstrando o fluxo de SignUp utilizando um locator para injeção de dependência
+
+<img src="https://github.com/lucasmargui/Flutter_Estrutura_Firebase/assets/157809964/7f378eea-f021-4253-9344-49485ea24264" style="width:100%">
+
+
+
+
+
+
+
+
+
+
 
   
 
