@@ -1,4 +1,4 @@
-<H1 align="center">Flutter Locator e Firebase</H1>
+<H1 align="center">Flutter Firebase e Locator</H1>
 <p align="center">🚀 Desenvolvimento de uma estrutura contendo locator e Firebase para referências futuras</p>
 
 ## Recursos Utilizados
