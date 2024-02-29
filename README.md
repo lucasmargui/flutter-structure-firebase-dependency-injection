@@ -91,6 +91,13 @@ Get_it é conhecido como um Service Locator simples. Com ele você registra seus
 
 A implementação de injeção de dependência usando um Service Locator implica que a SignUpPage instancia o _controller ao chamar SignUpController(MockAuthService()). Propõe-se remover essa responsabilidade da SignUpPage e transferi-la para um locator.
 
+```
+locator.registerFactory<AuthService>(() => FirebaseAuthService(),);:
+
+```
+
+Esta linha registra a classe FirebaseAuthService como um serviço no contêiner de injeção de dependência (locator). Sempre que alguém solicitar uma instância de AuthService, o contêiner retornará uma nova instância de FirebaseAuthService.
+
 <img src="https://github.com/lucasmargui/Flutter_Estrutura_Firebase/assets/157809964/2ecb041a-3af4-4866-b41a-ea12103f29d9" style="width:70%">
 
 ### Explicação da utilização
