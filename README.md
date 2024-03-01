@@ -12,6 +12,12 @@
 
 ## Configuração de Integração com Firebase utilizando Flutter:
 
+### Instalção do Firebase CLI:
+
+```
+npm install -g firebase-tools
+```
+
 ### Autenticação no Firebase CLI:
 
 ```
