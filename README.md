@@ -14,32 +14,30 @@
 
 ### Autenticação no Firebase CLI:
 
+```
+firebase login
+```
+
 - Execute o comando firebase login para autenticar-se no Firebase.
+  
 
 ### Ativação do FlutterFire CLI:
+
+```
+dart pub global activate flutterfire_cli
+```
 
 - Utilize o comando dart pub global activate flutterfire_cli para ativar o FlutterFire CLI globalmente.
   
 ### Configuração do FlutterFire:
 
+```
+flutterfire configure
+```
+
 - Execute o comando flutterfire configure e selecione o projeto a ser configurado.
   
-### Adição do pacote firebase_core:
 
-- Adicione o pacote firebase_core ao seu projeto Flutter com o comando flutter pub add firebase_core.
-
-### Reconfiguração do FlutterFire:
-
-- Após adicionar o pacote firebase_core, é necessário novamente configurar o FlutterFire. Execute flutterfire configure para isso.
-
-
-### Adição do pacote firebase_auth:
-
-- Adicione o pacote firebase_auth ao seu projeto Flutter com o comando flutter pub add firebase_auth.
-
-### Reconfiguração Final do FlutterFire:
-
-- Para garantir a integração correta, execute novamente o comando flutterfire configure após adicionar o pacote firebase_auth.
 
 
 ## Lógica de desenvolvimento :  
