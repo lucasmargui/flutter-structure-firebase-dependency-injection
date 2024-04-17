@@ -1,7 +1,7 @@
-<H1 align="center">Flutter Firebase e Injeção de Dependência</H1>
-<p align="center">🚀 Desenvolvimento de uma estrutura contendo locator e Firebase para referências futuras</p>
+<H1 align="center">Flutter Firebase and Dependency Injection</H1>
+<p align="center">🚀 Development of a framework containing locator and Firebase for future references</p>
 
-## Recursos Utilizados
+## Resources Used
 - Flutter 3.3.5
 - Get_it 7.6.0
 - Firebase_core 2.24.2
@@ -10,126 +10,111 @@
 
 
 
-## Configuração de Integração com Firebase utilizando Flutter:
+## Configuring Integration with Firebase using Flutter:
 
-### Instalção do Firebase CLI:
+### Firebase CLI Installation:
 
 ```
 npm install -g firebase-tools
 ```
 
-### Autenticação no Firebase CLI:
+### Firebase CLI authentication:
 
 ```
 firebase login
 ```
 
-- Execute o comando firebase login para autenticar-se no Firebase.
-  
+- Run the firebase login command to authenticate to Firebase.
 
-### Ativação do FlutterFire CLI:
+
+### FlutterFire CLI activation:
 
 ```
 dart pub global activate flutterfire_cli
 ```
 
-- Utilize o comando dart pub global activate flutterfire_cli para ativar o FlutterFire CLI globalmente.
-  
-### Configuração do FlutterFire:
+- Use the dart pub global activate flutterfire_cli command to activate the FlutterFire CLI globally.
+
+### FlutterFire Configuration:
 
 ```
 flutterfire configure
 ```
 
-- Execute o comando flutterfire configure e selecione o projeto a ser configurado.
-  
+- Run the flutterfire configure command and select the project to be configured.
 
 
 
-## Lógica de desenvolvimento :  
 
-### Model 
-- Crie o model UserModel para representar os dados do usuário.
+## Development logic:
+
+### Model
+- Create the UserModel model to represent user data.
 
 
 
 <div align="center">
-  <img src="https://github.com/lucasmargui/Flutter_Estrutura_Firebase/assets/157809964/925d8090-bc52-45e4-a00c-fb3d0d3c29b9" style="width:70%">
+ <img src="https://github.com/lucasmargui/Flutter_Estrutura_Firebase/assets/157809964/925d8090-bc52-45e4-a00c-fb3d0d3c29b9" style="width:70%">
 </div>
 
 ### Service Pattern:
 
-- Implemente o padrão de serviço para separar a lógica de negócios da camada de visualização.
-  
-### Classe AuthService como Interface:
+- Implement the service pattern to separate business logic from the view layer.
 
-- Desenvolva a classe AuthService como uma interface para as operações de autenticação.
+### AuthService Class as Interface:
 
-  <div align="center">
-  <img src="https://github.com/lucasmargui/Flutter_Estrutura_Firebase/assets/157809964/c67557a5-a38b-40fe-9430-6c920efd36d4" style="width:70%">
+- Develop the AuthService class as an interface for authentication operations.
+
+ <div align="center">
+ <img src="https://github.com/lucasmargui/Flutter_Estrutura_Firebase/assets/157809964/c67557a5-a38b-40fe-9430-6c920efd36d4" style="width:70%">
 </div>
 
 
 
 
-### Implementação da Classe Abstrata AuthService:
+### Implementation of the AuthService Abstract Class:
 
-- Implemente a classe abstrata AuthService com métodos que definem as operações de autenticação necessárias.
-  <div align="center">
-  <img src="https://github.com/lucasmargui/Flutter_Estrutura_Firebase/assets/157809964/38bf7940-947d-4efb-898e-f643dfb2800d" style="width:70%">
+- Implement the AuthService abstract class with methods that define the required authentication operations.
+ <div align="center">
+ <img src="https://github.com/lucasmargui/Flutter_Estrutura_Firebase/assets/157809964/38bf7940-947d-4efb-898e-f643dfb2800d" style="width:70%">
 </div>
 
-- Utilize a classe FireBaseAuthService para sobrescrever os métodos da classe abstrata e integrar as operações com os métodos de autenticação fornecidos pelo Firebase, como cadastro e login.
+- Use the FireBaseAuthService class to override the abstract class's methods and integrate operations with the authentication methods provided by Firebase, such as registration and login.
 
-  <div align="center">
-  <img src="https://github.com/lucasmargui/Flutter_Estrutura_Firebase/assets/157809964/10fadca7-e723-4fa9-8902-f5e87e3bff21" style="width:45%">
-   <img src="https://github.com/lucasmargui/Flutter_Estrutura_Firebase/assets/157809964/49c700ee-594c-4dd1-9a4b-43d4ae6eff45" style="width:45%">
+ <div align="center">
+ <img src="https://github.com/lucasmargui/Flutter_Estrutura_Firebase/assets/157809964/10fadca7-e723-4fa9-8902-f5e87e3bff21" style="width:45%">
+ <img src="https://github.com/lucasmargui/Flutter_Estrutura_Firebase/assets/157809964/49c700ee-594c-4dd1-9a4b-43d4ae6eff45" style="width:45%">
 </div>
 
 
-## Utilizando Get_it 
+## Using Get_it
 
-Get_it é conhecido como um Service Locator simples. Com ele você registra seus tipos em uma interface e fornece a implementação concreta a ela.
+Get_it is known as a simple Service Locator. With it you register your types in an interface and provide the concrete implementation for it.
 
-### Criação do locator para injeção de dependência
+### Creation of locator for dependency injection
 
-A implementação de injeção de dependência usando um Service Locator implica que a SignUpPage instancia o _controller ao chamar SignUpController(MockAuthService()). Propõe-se remover essa responsabilidade da SignUpPage e transferi-la para um locator.
+Implementing dependency injection using a Service Locator implies that SignUpPage instantiates the _controller when calling SignUpController(MockAuthService()). It is proposed to remove this responsibility from SignUpPage and transfer it to a locator.
 
 ```
 locator.registerFactory<AuthService>(() => FirebaseAuthService(),);:
 
 ```
 
-Esta linha registra a classe FirebaseAuthService como um serviço no contêiner de injeção de dependência (locator). Sempre que alguém solicitar uma instância de AuthService, o contêiner retornará uma nova instância de FirebaseAuthService.
+This line registers the FirebaseAuthService class as a service in the dependency injection container (locator). Whenever someone requests an AuthService instance, the container returns a new FirebaseAuthService instance.
 
 <img src="https://github.com/lucasmargui/Flutter_Estrutura_Firebase/assets/157809964/2ecb041a-3af4-4866-b41a-ea12103f29d9" style="width:70%">
 
-### Explicação da utilização
-Em outras palavras, a Classe A transfere a responsabilidade para o Locator para recuperar o Serviço A. A Page A também transfere a responsabilidade para o Locator para recuperar o Controller A, que invoca o Serviço A.
+### Explanation of use
+In other words, Class A transfers responsibility to Locator to retrieve Service A. Page A also transfers responsibility to Locator to retrieve Controller A, which invokes Service A.
 
 <img src="https://github.com/lucasmargui/Flutter_Estrutura_Firebase/assets/157809964/c36f005b-6d84-46cc-9977-eb18d6141418" style="width:100%">
 
-### Criando instância de controller
-Criando instância de controller através do locator e utilizando o método de signUp
+### Creating controller instance
+Creating a controller instance through the locator and using the signUp method
 <img src="https://github.com/lucasmargui/Flutter_Estrutura_Firebase/assets/157809964/dc252b13-db0b-4406-83bc-546a40ae6849" style="width:100%">
 
-### Demonstrando fluxo
+### Demonstrating flow
 
-Demonstrando o fluxo de SignUp utilizando um locator para injeção de dependência
+Demonstrating the SignUp flow using a locator for dependency injection
 
 <img src="https://github.com/lucasmargui/Flutter_Estrutura_Firebase/assets/157809964/7f378eea-f021-4253-9344-49485ea24264" style="width:100%">
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
